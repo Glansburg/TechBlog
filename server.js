@@ -7,7 +7,8 @@ const routes = require('./controllers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
+//const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({});
 
 const sequelize = require('./config/connection');
 
@@ -18,7 +19,7 @@ const sess = {
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-        db: lifeManager
+        db: sequelize
     })
 };
 

@@ -8,6 +8,8 @@ const {
 
 
 router.get('/', (req, res) => {
+    res.render("login");
+    
     Post.findAll({
             attributes: [
                 'id',
@@ -98,7 +100,7 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-
+//login is an argument
     res.render('login');
 });
 
