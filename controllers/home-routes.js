@@ -106,7 +106,7 @@ router.get("/post/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-// route for you to login, if you are logged in redirects you to root page.
+// route for you to login handlebars, if you are logged in redirects you to root page.
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -126,7 +126,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-// if you try to select everything it well send you an error saying you cannot.
+// if you try to select everything it will send you an error saying you cannot.
 router.get("*", (req, res) => {
   res.status(404).send("You cannot select this");
   // res.redirect('/');
