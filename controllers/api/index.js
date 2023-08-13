@@ -1,3 +1,4 @@
+// routing refers to how an applications endpoints respont to client requests.
 const router = require('express').Router();
 const userRoutes = require('./user-routes.js');
 
