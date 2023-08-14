@@ -1,0 +1,17 @@
+[
+    {
+      "comment_text": "this is a test",
+      "user_id": 1,
+      "post_id": 3
+    },
+    {
+      "comment_text": "I think your reaction is correct bill",
+      "user_id": 2,
+      "post_id": 1
+    },
+    {
+      "comment_text": "Pleae keep your comments respectful.",
+      "user_id": 3,
+      "post_id": 2
+    }
+  ]
