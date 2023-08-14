@@ -44,7 +44,7 @@ router.get("/", withAuth, (req, res) => {
        // rending this information to the dashboard and requiring user to be logged in session to see data.
       res.render("dashboard", {
         posts,
-        loggedIn: req.session.loggedIn,
+        loggedIn: true
       });
     })
     // if an error, gives 500 status. 
@@ -96,7 +96,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
 // rendering the edided post and requesting you to be logged in.
       res.render("edit-post", {
         post,
-        loggedIn: req.session.loggedIn,
+        loggedIn: true
       });
     })
     .catch((err) => {

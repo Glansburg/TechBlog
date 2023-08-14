@@ -7,7 +7,7 @@ User.hasMany(Post, {
     foreignKey: 'user_id'
 })
 
-// makes it so the user can have multiple comments
+// makes it so the user can have multiple comment id
 User.hasMany(Comment, {
     foreignKey: 'user_id'
 })
@@ -17,7 +17,7 @@ Post.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
-// makes it so posts can have multiple comments on it
+// makes it so posts can have multiple comment post id
 Post.hasMany(Comment, {
     foreignKey: 'post_id'
 })

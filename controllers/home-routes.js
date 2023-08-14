@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   // finding all attributes for post for the root route.
   Post.findAll({
     attributes: ["id", "title", "content", "date_created"],
-    // including all comment attributes for root route
+    // including all comment attributes for root route. joining onto the post.
     include: [
       {
         model: Comment,
@@ -41,7 +41,7 @@ router.get("/", (req, res) => {
           plain: true,
         })
       );
-    // rending this information to the home page and requiring user to be logged in session to see data.
+      // rending this information to the home page and requiring user to be logged in session to see data.
       res.render("homepage", {
         posts,
         loggedIn: req.session.loggedIn,
@@ -83,7 +83,7 @@ router.get("/post/:id", (req, res) => {
       },
     ],
   })
-  // then promising the dbpost data, if not you receive an error message.
+    // then promising the dbpost data, if not you receive an error message.
     .then((dbPostData) => {
       if (!dbPostData) {
         res.status(404).json({
@@ -91,11 +91,11 @@ router.get("/post/:id", (req, res) => {
         });
         return;
       }
-// getting the post dbdata plain.
+      // getting the post dbdata plain.
       const post = dbPostData.get({
         plain: true,
       });
-// rendering it into a single post with post as argument, requring loggedin session to see. if not logged in receive an 500 status error.
+      // rendering it into a single post with post as argument, requring loggedin session to see. if not logged in receive an 500 status error.
       res.render("single-post", {
         post,
         loggedIn: req.session.loggedIn,
@@ -122,14 +122,8 @@ router.get("/signup", (req, res) => {
     res.redirect("/");
     return;
   }
-// renders user to signup as argument
+  // renders user to signup as argument
   res.render("signup");
-});
-
-// if you try to select everything it will send you an error saying you cannot.
-router.get("*", (req, res) => {
-  res.status(404).send("You cannot select this");
-  // res.redirect('/');
 });
 
 module.exports = router;

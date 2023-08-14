@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 
@@ -19,7 +20,7 @@ const sess = {
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-        db: sequelize
+    db: sequelize
     })
 };
 
